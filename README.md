@@ -1,90 +1,77 @@
-# Nakshatra AI
+# Chariot Studio
 
-Nakshatra AI is an AI-powered astrology intelligence platform designed to provide direction, clarity, and actionable insights by combining Vedic astrology with modern AI systems.
+Chariot Studio is the digital showroom for Chariot Auto: a polished web experience where concept vehicles, production-ready models, interior themes, color studies, and mobility ideas live together in one curated gallery.
+
+The site presents Chariot Auto as a design-led automotive brand and gives visitors a showroom-style path through the company’s vehicle portfolio.
 
 ---
 
 ## Overview
 
-Most astrology platforms focus on predictions or paid consultations. Nakshatra AI takes a fundamentally different approach.
+Chariot Studio replaces prediction-style content with an automotive design showcase focused on:
 
-Instead of telling users what might happen, it helps them understand:
-- Why things are happening
-- What patterns exist in their life
-- What actions they can take next
+- Vehicle design presentation
+- Model discovery
+- Exterior and interior galleries
+- Concept-to-production storytelling
+- Brand, engineering, and craft highlights
+- Customer inquiry and studio visit conversion
 
-Nakshatra AI integrates astrology with behavioral analysis and AI reasoning to deliver structured, decision-oriented guidance.
+The experience should feel like walking through a premium showroom: visual first, organized by collections, and supported by clear product details.
 
 ---
 
 ## Key Features
 
-- AI-driven Kundali analysis
-- Context-aware life guidance
-- Behavioral and psychological insights
-- Conversational AI astrologer
-- Structured recommendations instead of vague predictions
-- Scalable and integration-ready architecture
+- Hero showroom for the latest Chariot Auto design language
+- Vehicle gallery with concept, sedan, SUV, coupe, and EV collections
+- Design cards for aerodynamics, cabin materials, lighting, wheels, and colorways
+- Studio notes that explain why each design exists
+- Inquiry-focused calls to action for test drives, previews, and studio appointments
+- Responsive layout suitable for desktop, tablet, and mobile visitors
 
 ---
 
-## Unique Value Proposition
+## Brand Positioning
 
-Nakshatra AI is built on three core principles:
+Chariot Studio is built on three principles:
 
-1. Direction over prediction  
-   Focuses on actionable guidance rather than passive forecasting  
+1. **Showroom over catalog**  
+   Present every car as an experience, not just a specification sheet.
 
-2. Intelligence over intuition  
-   Uses AI to structure and validate astrological interpretations  
+2. **Design clarity over clutter**  
+   Use clean sections, strong imagery zones, and concise copy.
 
-3. Depth over generalization  
-   Provides personalized insights based on user context, not generic horoscopes  
-
----
-
-## Comparison with Existing Platforms
-
-| Platform         | Approach                          | Limitations |
-|----------------|----------------------------------|------------|
-| AstroSage AI   | Automated astrology predictions   | Limited contextual reasoning |
-| AstroTalk AI   | Human astrologer marketplace      | Transactional, not scalable |
-| Melooha        | Content-driven astrology          | Generalized insights |
-| Nakshatra AI   | AI + Astrology + Psychology       | Directional, structured, and scalable |
+3. **Future mobility over generic auto content**  
+   Highlight electrification, aerodynamics, material innovation, and driver-centered interiors.
 
 ---
 
-## Architecture (High-Level)
+## Experience Architecture
 
-- AI Layer: Language models for reasoning and interaction  
-- Astrology Engine: Kundali calculation and interpretation logic  
-- Data Layer: User inputs, behavioral context, and history  
-- Interface Layer: Chat-based and dashboard-driven UI  
+- **Showroom Layer:** landing page, hero model, vehicle highlights, and collection navigation
+- **Design System Layer:** colors, typography, spacing, card styles, and responsive behavior
+- **Content Layer:** model names, feature descriptions, studio notes, and conversion copy
+- **Interaction Layer:** gallery browsing, calls to action, and inquiry paths
 
 ---
 
 ## Use Cases
 
-- Life decision support (career, relationships, timing)
-- Self-awareness and behavioral insights
-- Astrology-based advisory systems
-- AI-powered consultation platforms
-
----
-
-## Roadmap
-
-- Advanced chart interpretation models  
-- Real-time conversational assistant  
-- API integrations for third-party platforms  
-- Mobile and web application deployment  
+- Present Chariot Auto’s upcoming vehicle lineup
+- Showcase concept cars and design studies
+- Support customer discovery before a dealership or studio visit
+- Host launch pages for new models
+- Provide a premium brand hub for investors, partners, and press
 
 ---
 
 ## Getting Started
 
+Open `index.html` in a browser to view the Chariot Studio showroom.
+
 ```bash
-git clone https://github.com/YOUR_USERNAME/Nakshatra-AI.git
-cd Nakshatra-AI
-pip install -r requirements.txt
+python3 -m http.server 8000
 ```
+
+Then visit `http://localhost:8000`.

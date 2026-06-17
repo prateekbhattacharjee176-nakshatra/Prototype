@@ -1,271 +1,127 @@
-# Nakshatra AI — Engineering Layer README
+# Chariot Studio — Product and Engineering Spine
 
 ## 1. Overview
 
-This document defines the core AI engineering stack for Nakshatra AI.
+This document defines the product and technical spine for Chariot Studio, the digital showroom where Chariot Auto’s vehicle designs are presented, explored, and converted into customer interest.
 
-The system is built using pre-trained LLMs + custom intelligence layers, not by training models from scratch.
-
-### Core Layers
-
-1. LLM Layer (Gemini / GPT)
-2. Astrology Brain Layer
-3. Personality & Memory Layer
-4. Prompt Engineering Layer
-5. RAG (Retrieval Augmented Generation)
+The system is a web-first showroom built around brand storytelling, vehicle discovery, and fast iteration for future model launches.
 
 ---
 
-## 2. LLM Layer
+## 2. Core Layers
 
-### Providers
+1. **Showroom Interface Layer**
+   - Landing page sections
+   - Vehicle cards
+   - Gallery blocks
+   - Calls to action for studio visits and model previews
 
-- Google — Gemini (Primary)
-- OpenAI — GPT (Fallback / Premium)
+2. **Design Content Layer**
+   - Model names and trims
+   - Exterior and interior design notes
+   - Colorway, wheel, lighting, and material details
+   - Concept versus production status
 
-### Responsibilities
+3. **Asset Layer**
+   - Hero images or rendered vehicle artwork
+   - Detail shots for wheels, cabins, lighting, and paint
+   - Brand marks and launch campaign graphics
 
-- Natural language understanding
-- Response generation
-- Emotional tone handling
-
-### Design
-
-- Stateless usage
-- No fine-tuning initially
-- Controlled via prompts + context injection
-
-### Model Routing (Concept)
-
-```python
-def route_model(intent, usage_level):
-    if intent == "deep_astrology" or intent == "emotional":
-        return "premium_model"
-    elif usage_level > threshold:
-        return "light_model"
-    return "standard_model"
-```
+4. **Data Layer**
+   - Structured vehicle metadata
+   - Inquiry forms and lead capture
+   - Future CMS or API-ready model records
 
 ---
 
-## 3. Astrology Brain Layer
-
-### Purpose
-
-Provide deterministic intelligence (non-AI) for astrology logic.
+## 3. Showroom Experience
 
 ### Responsibilities
 
-- Birth chart generation
-- Planetary calculations
-- Dasha system
-- Rule-based interpretation
+- Introduce Chariot Auto’s design language
+- Give each model a clear personality and use case
+- Make the portfolio easy to browse
+- Encourage visitors to book previews, test drives, or studio appointments
 
-### Implementation
+### Recommended Sections
 
-- Python modules
-- JSON/YAML rule definitions
+- Hero: flagship concept or latest launch
+- Collections: electric, performance, family, urban, and concept vehicles
+- Design Details: aerodynamics, lighting, cockpit, materials, wheels
+- Studio Journal: short notes from the design team
+- Inquiry CTA: appointment, preview, or partnership contact
 
-### Example Structure
+---
 
-```json
-{
-  "saturn_in_7th": {
-    "meaning": "delayed relationships",
-    "advice": "focus on long-term compatibility"
-  }
-}
-```
+## 4. Vehicle Metadata Structure
 
-### Output
-
-Structured astrology context:
+A future implementation can store vehicles in JSON so the gallery is easy to expand.
 
 ```json
 {
-  "current_dasha": "Saturn",
-  "insights": ["delay in career growth", "need for discipline"]
+  "name": "Chariot Arc GT",
+  "category": "Electric Grand Tourer",
+  "status": "Concept",
+  "rangeEstimate": "620 km",
+  "designHighlights": [
+    "low-slung aerodynamic profile",
+    "panoramic glass canopy",
+    "signature horizon light bar"
+  ],
+  "cta": "Request a studio preview"
 }
 ```
 
 ---
 
-## 4. Personality & Memory Layer
-
-### Purpose
-
-Enable long-term personalization and emotional continuity.
-
-### Data Stored
-
-- User preferences
-- Emotional states
-- Relationship history
-- Key life events
-- Summarized chat history
-
-### Memory Types
-
-1. **Short-term memory**
-   - Current session
-   - Stored in Redis
-2. **Long-term memory**
-   - Persistent summaries
-   - Stored in DB (PostgreSQL)
-
-### Memory Compression
-
-- Raw chat → summarized context
-- Prevents token explosion
-
-### Example
-
-```json
-{
-  "user_profile": {
-    "mood_pattern": "anxious about career",
-    "relationship_status": "recent breakup",
-    "goals": ["startup success"]
-  }
-}
-```
-
----
-
-## 5. Prompt Engineering Layer
-
-### Purpose
-
-Control behavior, tone, and output quality of LLM.
-
-### Structure
-
-#### System Prompt Template
+## 5. Interaction Flow
 
 ```text
-You are Nakshatra AI, an emotionally intelligent astrologer.
-You combine astrology with practical life advice.
-You are calm, supportive, and direct.
-```
-
-#### Dynamic Injection
-
-- User input
-- Memory summary
-- Astrology insights
-- Retrieved knowledge
-
-#### Final Prompt Format
-
-```text
-[System Role]
-[User Memory Summary]
-[Astrology Context]
-[User Message]
-```
-
-### Responsibilities
-
-- Tone consistency
-- Context fusion
-- Guardrails (avoid hallucination)
-
----
-
-## 6. RAG (Retrieval Augmented Generation)
-
-### Purpose
-
-Inject domain knowledge without training models.
-
-### Data Sources
-
-- Astrology rules
-- Interpretations
-- Pre-written guidance templates
-
-### Pipeline
-
-1. Convert data into embeddings
-2. Store in vector database
-3. Retrieve relevant chunks per query
-4. Inject into prompt
-
-### Retrieval Flow
-
-```python
-query_embedding = embed(user_query)
-results = vector_db.search(query_embedding, top_k=5)
-context = combine(results)
-```
-
-### Benefits
-
-- Accurate responses
-- Updatable knowledge
-- Reduced hallucination
-
----
-
-## 7. End-to-End Flow
-
-```text
-User Input
+Visitor lands on Chariot Studio
    ↓
-Fetch Memory
+Hero introduces the design language
    ↓
-Run Astrology Engine
+Visitor browses vehicle collections
    ↓
-Retrieve Knowledge (RAG)
+Design details explain materials and engineering intent
    ↓
-Build Prompt
+Visitor selects a model or inquiry CTA
    ↓
-Route Model (Gemini / GPT)
-   ↓
-Generate Response
-   ↓
-Store + Summarize Memory
-   ↓
-Return Output
+Lead is captured for preview, test drive, or launch updates
 ```
 
 ---
 
-## 8. Key Design Principles
+## 6. Design Principles
 
-1. **AI is not the product**
-   - LLM = interface
-   - Logic + memory = product
+1. **Premium but approachable**
+   - Large visuals, concise copy, and generous spacing
 
-2. **Deterministic + Generative Hybrid**
-   - Astrology → deterministic
-   - Conversation → generative
+2. **Vehicle-first storytelling**
+   - Every section should support the cars, not distract from them
 
-3. **Cost Control**
-   - Context compression
-   - Model routing
-   - Limited token usage
+3. **Modular content**
+   - New models, trims, and launch stories should be easy to add
 
-4. **Personalization First**
-   - Memory layer drives retention
+4. **Performance-conscious**
+   - Optimize images, keep dependencies light, and prioritize fast first paint
 
----
-
-## 9. Future Extensions
-
-- Fine-tuned domain model
-- Emotion detection layer
-- Multi-modal inputs (voice, image)
-- Personalized reasoning engine
+5. **Conversion-ready**
+   - Every page should create a clear next step for interested visitors
 
 ---
 
-## 10. Summary
+## 7. Future Extensions
 
-Nakshatra AI’s engineering stack is built on:
+- CMS-backed vehicle records
+- 3D model viewer
+- Configurator for color, wheels, and interiors
+- Appointment booking integration
+- Press kit and investor showroom pages
+- Analytics dashboard for vehicle interest
 
-- Pre-trained LLMs (Gemini / GPT)
-- Deterministic astrology logic
-- Persistent personality memory
-- Structured prompt orchestration
-- Retrieval-based knowledge injection
+---
+
+## 8. Summary
+
+Chariot Studio is the brand and product showcase for Chariot Auto. Its technical spine should stay simple, modular, and visual: a showroom-style website that can grow from static launch pages into a full vehicle discovery platform.
